@@ -1,0 +1,3 @@
+redis_url: redis://localhost:6379
+my_sql_url: mysql://root:12345678@tcp(localhost:3307)/xxx?checkConnLiveness=false&loc=Local&parseTime=true&maxAllowedPacket=0
+env: local

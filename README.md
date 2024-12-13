@@ -9,7 +9,7 @@ go run cmd/* server # init app
 
 ## Request to init data time series
 
-```json
+```sh
 curl --location --request POST 'http://localhost:8080/api/v1/velocity-rule-in' \
 --header 'User-Agent: Apidog/1.0.0 (https://apidog.com)' \
 --header 'Content-Type: application/json' \
