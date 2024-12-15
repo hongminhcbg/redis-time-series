@@ -26,6 +26,7 @@ func Init() error {
 
 type TimeSeries interface {
 	AddAutoTs(key string, value float64) error
+	AvgAggregationSum(key string, from, to int64) (float64, error)
 }
 
 type _ts struct {
@@ -42,4 +43,22 @@ func (t *_ts) AddAutoTs(key string, value float64) error {
 		RetentionMSecs: days_30,
 	})
 	return err
+}
+
+func (t *_ts) AvgAggregationSum(key string, from, to int64) (float64, error) {
+	timeBucket := to - from
+	points, err := t.cli.RangeWithOptions(key, from, to, redistimeseries.RangeOptions{
+		AggType:    redistimeseries.SumAggregation,
+		TimeBucket: int(timeBucket),
+		Count:      -1,
+	})
+	if err != nil {
+		return 0, err
+	}
+
+	if len(points) == 0 {
+		return 0, nil
+	}
+
+	return points[0].Value, nil
 }

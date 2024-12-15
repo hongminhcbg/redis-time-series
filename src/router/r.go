@@ -8,4 +8,5 @@ import (
 func InitGin(e *gin.Engine, s *service.Service) {
 	e.POST("/api/v1/users", s.CreateUser)
 	e.POST("/api/v1/velocity-rule-in", s.VelocityInput)
+	e.POST("/api/v1/run-realtime-rule", s.RunRealtimeRule)
 }

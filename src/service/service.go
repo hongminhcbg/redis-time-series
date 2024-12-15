@@ -82,6 +82,35 @@ func (s *Service) CreateUser(ctx *gin.Context) {
 	s.handleExistedReqId(ctx, u, &req)
 }
 
+func (s *Service) RunRealtimeRule(ctx *gin.Context) {
+	type Input struct {
+		UserId string `json:"user_id"`
+	}
+
+	in := &Input{}
+	err := ctx.ShouldBindJSON(in)
+	if err != nil {
+		s.log.Error(err, "json unmarshal error")
+		ctx.JSON(http.StatusBadRequest, gin.H{"error": err})
+		return
+	}
+
+	msg := &rules.RealtimeRuleInput{
+		UserId: in.UserId,
+		Ts:     s.redists,
+	}
+
+	err = rules.MainRealtimeRule.Execute(ctx.Request.Context(), msg, s.log)
+	if err != nil {
+		s.log.Error(err, "execute rule error")
+		ctx.JSON(http.StatusBadRequest, gin.H{"error": err})
+		return
+	}
+
+	s.log.Info("execute rule success")
+	ctx.JSON(http.StatusOK, gin.H{"status": "ok", "amount": msg.Amount, "msg": msg.Msg})
+}
+
 func (s *Service) VelocityInput(ctx *gin.Context) {
 	b, err := io.ReadAll(ctx.Request.Body)
 	if err != nil {
@@ -111,7 +140,7 @@ func (s *Service) VelocityInput(ctx *gin.Context) {
 
 	s.log.Info("execute rule success", "output", rMsg.VelocityOuput)
 	for _, v := range rMsg.VelocityOuput {
-		err = s.redists.AddAutoTs(fmt.Sprintf("%s%s", v.UserId, v.DataKey), v.Data)
+		err = s.redists.AddAutoTs(fmt.Sprintf("%s*%s", v.UserId, v.DataKey), v.Data)
 		if err != nil {
 			s.log.Error(err, "save to redis error")
 			ctx.JSON(http.StatusBadRequest, gin.H{"error": err})
