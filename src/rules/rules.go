@@ -2,6 +2,7 @@ package rules
 
 import (
 	"context"
+	"sync"
 
 	"github.com/go-logr/logr"
 	"github.com/hyperjumptech/grule-rule-engine/ast"
@@ -24,7 +25,7 @@ rule amount_a2 "Extact A" salience 1 {
   WHEN 
     In.GetTransType() == "A"
   THEN
-    In.Extract("a2", "$.data.a.amount");
+    In.Extract("amount_a2", "$.data.a.amount");
   	Retract("amount_a2");
 }
 
@@ -45,13 +46,42 @@ rule amount_c "Extact amount c" salience 4 {
 }
 `)
 
-var MainEngine IRule
+var realtimeRule = []byte(
+	`
+rule checkVelocityAmountGt1000 "check amount within 100s gt 1000" salience 1 {
+  WHEN 
+  	In.VelocityData("amount_a2").WithIn(100).Sum() > 100
+  THEN
+		In.Msg = "Amount A2 within 100s gt 1000";
+  	Retract("checkVelocityAmountGt1000");
+}
+
+rule log "log" salience 2 {
+  WHEN 
+  	1 == 1
+  THEN
+		In.Msg = "log";
+		In.Amount = In.VelocityData("amount_a2").WithIn(100).Sum();
+  	Retract("log");
+}
+`)
+
+var (
+	MainEngine       IRule
+	MainRealtimeRule IRule
+	o                sync.Once
+)
 
 func init() {
-	MainEngine = &_rule{
-		script: rule,
-		ID:     0,
-	}
+	o.Do(func() {
+		MainEngine = &_rule{
+			script: rule,
+			ID:     0,
+		}
+		MainRealtimeRule = &_rule{
+			script: realtimeRule,
+		}
+	})
 }
 
 type IRule interface {

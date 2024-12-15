@@ -75,3 +75,50 @@ ts.range 1a2 1734081093978 1734081130788 AGGREGATION sum 1000
 #   2) 102
 
 ```
+
+## Access velocity rule with realtime rule
+### script 
+```
+rule checkVelocityAmountGt1000 "check amount within 100s gt 1000" salience 1 {
+  WHEN 
+  	In.VelocityData("amount_a2").WithIn(100).Sum() > 100
+  THEN
+		In.Msg = "Amount A2 within 100s gt 1000";
+  	Retract("checkVelocityAmountGt1000");
+}
+
+rule log "log" salience 2 {
+  WHEN 
+  	1 == 1
+  THEN
+		In.Msg = "log";
+		In.Amount = In.VelocityData("amount_a2").WithIn(100).Sum();
+  	Retract("log");
+}
+```
+
+### curl
+
+```
+curl --location --request POST 'http://localhost:8080/api/v1/run-realtime-rule' \
+--header 'User-Agent: Apidog/1.0.0 (https://apidog.com)' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "user_id": "1"
+}'
+
+--- resp if not hit rule ---
+{
+    "amount": 50,
+    "msg": "log",
+    "status": "ok"
+}
+
+--- If hit rule ---
+{
+    "amount": 102,
+    "msg": "Amount A2 within 100s gt 1000",
+    "status": "ok"
+}
+```
+
