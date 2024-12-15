@@ -1,4 +1,4 @@
-# service-gin-template
+# API -> Velocity rule -> Redis time series -> Realtime rule 
 
 ## Run demo
 
