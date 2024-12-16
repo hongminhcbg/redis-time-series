@@ -1,0 +1,485 @@
+{
+  "level": "info",
+  "ts": 1734322243.2025201,
+  "logger": "velocity-rule",
+  "caller": "rules/log.go:18",
+  "msg": "ExecuteRuleEntry",
+  "cycle": 1,
+  "entry": {
+    "AstID": "1734322243-136",
+    "GrlText": "rulelog\"log\"salience2{WHEN1==1THENIn.Msg=\"log\";In.Amount=In.VelocityData(\"amount_a2\").WithIn(100).Sum();In.UnknowFunc();Retract(\"log\");}",
+    "RuleName": "log",
+    "RuleDescription": "log",
+    "Salience": 2,
+    "WhenScope": {
+      "AstID": "1734322243-137",
+      "GrlText": "WHEN1==1",
+      "Expression": {
+        "AstID": "1734322243-138",
+        "GrlText": "1==1",
+        "LeftExpression": {
+          "AstID": "1734322243-139",
+          "GrlText": "1",
+          "LeftExpression": null,
+          "RightExpression": null,
+          "SingleExpression": null,
+          "ExpressionAtom": {
+            "AstID": "1734322243-140",
+            "GrlText": "1",
+            "VariableName": "",
+            "Constant": {
+              "AstID": "1734322243-141",
+              "GrlText": "1",
+              "Snapshot": "",
+              "DataContext": null,
+              "WorkingMemory": null,
+              "Value": {},
+              "IsNil": false
+            },
+            "FunctionCall": null,
+            "Variable": null,
+            "Negated": false,
+            "ExpressionAtom": null,
+            "ArrayMapSelector": null,
+            "Value": {},
+            "ValueNode": {},
+            "Evaluated": true
+          },
+          "Operator": 0,
+          "Negated": false,
+          "Value": {},
+          "Evaluated": true
+        },
+        "RightExpression": {
+          "AstID": "1734322243-139",
+          "GrlText": "1",
+          "LeftExpression": null,
+          "RightExpression": null,
+          "SingleExpression": null,
+          "ExpressionAtom": {
+            "AstID": "1734322243-140",
+            "GrlText": "1",
+            "VariableName": "",
+            "Constant": {
+              "AstID": "1734322243-141",
+              "GrlText": "1",
+              "Snapshot": "",
+              "DataContext": null,
+              "WorkingMemory": null,
+              "Value": {},
+              "IsNil": false
+            },
+            "FunctionCall": null,
+            "Variable": null,
+            "Negated": false,
+            "ExpressionAtom": null,
+            "ArrayMapSelector": null,
+            "Value": {},
+            "ValueNode": {},
+            "Evaluated": true
+          },
+          "Operator": 0,
+          "Negated": false,
+          "Value": {},
+          "Evaluated": true
+        },
+        "SingleExpression": null,
+        "ExpressionAtom": null,
+        "Operator": 11,
+        "Negated": false,
+        "Value": {},
+        "Evaluated": true
+      }
+    },
+    "ThenScope": {
+      "AstID": "1734322243-142",
+      "GrlText": "THENIn.Msg=\"log\";In.Amount=In.VelocityData(\"amount_a2\").WithIn(100).Sum();In.UnknowFunc();Retract(\"log\");",
+      "ThenExpressionList": {
+        "AstID": "1734322243-143",
+        "GrlText": "In.Msg=\"log\";In.Amount=In.VelocityData(\"amount_a2\").WithIn(100).Sum();In.UnknowFunc();Retract(\"log\");",
+        "ThenExpressions": [
+          {
+            "AstID": "1734322243-144",
+            "GrlText": "In.Msg=\"log\"",
+            "Assignment": {
+              "AstID": "1734322243-145",
+              "GrlText": "In.Msg=\"log\"",
+              "Variable": {
+                "AstID": "1734322243-125",
+                "GrlText": "In.Msg",
+                "Name": "Msg",
+                "Variable": {
+                  "AstID": "1734322243-120",
+                  "GrlText": "In",
+                  "Name": "In",
+                  "Variable": null,
+                  "ArrayMapSelector": null,
+                  "ValueNode": {},
+                  "Value": {}
+                },
+                "ArrayMapSelector": null,
+                "ValueNode": null,
+                "Value": {}
+              },
+              "Expression": {
+                "AstID": "1734322243-146",
+                "GrlText": "\"log\"",
+                "LeftExpression": null,
+                "RightExpression": null,
+                "SingleExpression": null,
+                "ExpressionAtom": {
+                  "AstID": "1734322243-147",
+                  "GrlText": "\"log\"",
+                  "VariableName": "",
+                  "Constant": {
+                    "AstID": "1734322243-148",
+                    "GrlText": "\"log\"",
+                    "Snapshot": "",
+                    "DataContext": null,
+                    "WorkingMemory": null,
+                    "Value": {},
+                    "IsNil": false
+                  },
+                  "FunctionCall": null,
+                  "Variable": null,
+                  "Negated": false,
+                  "ExpressionAtom": null,
+                  "ArrayMapSelector": null,
+                  "Value": {},
+                  "ValueNode": null,
+                  "Evaluated": false
+                },
+                "Operator": 0,
+                "Negated": false,
+                "Value": {},
+                "Evaluated": false
+              },
+              "IsAssign": true,
+              "IsPlusAssign": false,
+              "IsMinusAssign": false,
+              "IsDivAssign": false,
+              "IsMulAssign": false
+            },
+            "ExpressionAtom": null
+          },
+          {
+            "AstID": "1734322243-149",
+            "GrlText": "In.Amount=In.VelocityData(\"amount_a2\").WithIn(100).Sum()",
+            "Assignment": {
+              "AstID": "1734322243-150",
+              "GrlText": "In.Amount=In.VelocityData(\"amount_a2\").WithIn(100).Sum()",
+              "Variable": {
+                "AstID": "1734322243-151",
+                "GrlText": "In.Amount",
+                "Name": "Amount",
+                "Variable": {
+                  "AstID": "1734322243-120",
+                  "GrlText": "In",
+                  "Name": "In",
+                  "Variable": null,
+                  "ArrayMapSelector": null,
+                  "ValueNode": {},
+                  "Value": {}
+                },
+                "ArrayMapSelector": null,
+                "ValueNode": null,
+                "Value": {}
+              },
+              "Expression": {
+                "AstID": "1734322243-103",
+                "GrlText": "In.VelocityData(\"amount_a2\").WithIn(100).Sum()",
+                "LeftExpression": null,
+                "RightExpression": null,
+                "SingleExpression": null,
+                "ExpressionAtom": {
+                  "AstID": "1734322243-104",
+                  "GrlText": "In.VelocityData(\"amount_a2\").WithIn(100).Sum()",
+                  "VariableName": "",
+                  "Constant": null,
+                  "FunctionCall": {
+                    "AstID": "1734322243-105",
+                    "GrlText": "",
+                    "FunctionName": "Sum",
+                    "ArgumentList": {
+                      "AstID": "1734322243-106",
+                      "GrlText": "",
+                      "Arguments": []
+                    },
+                    "Value": {}
+                  },
+                  "Variable": null,
+                  "Negated": false,
+                  "ExpressionAtom": {
+                    "AstID": "1734322243-107",
+                    "GrlText": "In.VelocityData(\"amount_a2\").WithIn(100)",
+                    "VariableName": "",
+                    "Constant": null,
+                    "FunctionCall": {
+                      "AstID": "1734322243-108",
+                      "GrlText": "",
+                      "FunctionName": "WithIn",
+                      "ArgumentList": {
+                        "AstID": "1734322243-109",
+                        "GrlText": "100",
+                        "Arguments": [
+                          {
+                            "AstID": "1734322243-110",
+                            "GrlText": "100",
+                            "LeftExpression": null,
+                            "RightExpression": null,
+                            "SingleExpression": null,
+                            "ExpressionAtom": {
+                              "AstID": "1734322243-111",
+                              "GrlText": "100",
+                              "VariableName": "",
+                              "Constant": {
+                                "AstID": "1734322243-112",
+                                "GrlText": "100",
+                                "Snapshot": "",
+                                "DataContext": null,
+                                "WorkingMemory": null,
+                                "Value": {},
+                                "IsNil": false
+                              },
+                              "FunctionCall": null,
+                              "Variable": null,
+                              "Negated": false,
+                              "ExpressionAtom": null,
+                              "ArrayMapSelector": null,
+                              "Value": {},
+                              "ValueNode": {},
+                              "Evaluated": true
+                            },
+                            "Operator": 0,
+                            "Negated": false,
+                            "Value": {},
+                            "Evaluated": true
+                          }
+                        ]
+                      },
+                      "Value": {}
+                    },
+                    "Variable": null,
+                    "Negated": false,
+                    "ExpressionAtom": {
+                      "AstID": "1734322243-113",
+                      "GrlText": "In.VelocityData(\"amount_a2\")",
+                      "VariableName": "",
+                      "Constant": null,
+                      "FunctionCall": {
+                        "AstID": "1734322243-114",
+                        "GrlText": "",
+                        "FunctionName": "VelocityData",
+                        "ArgumentList": {
+                          "AstID": "1734322243-115",
+                          "GrlText": "\"amount_a2\"",
+                          "Arguments": [
+                            {
+                              "AstID": "1734322243-116",
+                              "GrlText": "\"amount_a2\"",
+                              "LeftExpression": null,
+                              "RightExpression": null,
+                              "SingleExpression": null,
+                              "ExpressionAtom": {
+                                "AstID": "1734322243-117",
+                                "GrlText": "\"amount_a2\"",
+                                "VariableName": "",
+                                "Constant": {
+                                  "AstID": "1734322243-118",
+                                  "GrlText": "\"amount_a2\"",
+                                  "Snapshot": "",
+                                  "DataContext": null,
+                                  "WorkingMemory": null,
+                                  "Value": {},
+                                  "IsNil": false
+                                },
+                                "FunctionCall": null,
+                                "Variable": null,
+                                "Negated": false,
+                                "ExpressionAtom": null,
+                                "ArrayMapSelector": null,
+                                "Value": {},
+                                "ValueNode": {},
+                                "Evaluated": true
+                              },
+                              "Operator": 0,
+                              "Negated": false,
+                              "Value": {},
+                              "Evaluated": true
+                            }
+                          ]
+                        },
+                        "Value": {}
+                      },
+                      "Variable": null,
+                      "Negated": false,
+                      "ExpressionAtom": {
+                        "AstID": "1734322243-119",
+                        "GrlText": "In",
+                        "VariableName": "",
+                        "Constant": null,
+                        "FunctionCall": null,
+                        "Variable": {
+                          "AstID": "1734322243-120",
+                          "GrlText": "In",
+                          "Name": "In",
+                          "Variable": null,
+                          "ArrayMapSelector": null,
+                          "ValueNode": {},
+                          "Value": {}
+                        },
+                        "Negated": false,
+                        "ExpressionAtom": null,
+                        "ArrayMapSelector": null,
+                        "Value": {},
+                        "ValueNode": {},
+                        "Evaluated": true
+                      },
+                      "ArrayMapSelector": null,
+                      "Value": {},
+                      "ValueNode": {},
+                      "Evaluated": true
+                    },
+                    "ArrayMapSelector": null,
+                    "Value": {},
+                    "ValueNode": {},
+                    "Evaluated": true
+                  },
+                  "ArrayMapSelector": null,
+                  "Value": {},
+                  "ValueNode": {},
+                  "Evaluated": true
+                },
+                "Operator": 0,
+                "Negated": false,
+                "Value": {},
+                "Evaluated": true
+              },
+              "IsAssign": true,
+              "IsPlusAssign": false,
+              "IsMinusAssign": false,
+              "IsDivAssign": false,
+              "IsMulAssign": false
+            },
+            "ExpressionAtom": null
+          },
+          {
+            "AstID": "1734322243-152",
+            "GrlText": "In.UnknowFunc()",
+            "Assignment": null,
+            "ExpressionAtom": {
+              "AstID": "1734322243-153",
+              "GrlText": "In.UnknowFunc()",
+              "VariableName": "",
+              "Constant": null,
+              "FunctionCall": {
+                "AstID": "1734322243-154",
+                "GrlText": "",
+                "FunctionName": "UnknowFunc",
+                "ArgumentList": {
+                  "AstID": "1734322243-155",
+                  "GrlText": "",
+                  "Arguments": []
+                },
+                "Value": {}
+              },
+              "Variable": null,
+              "Negated": false,
+              "ExpressionAtom": {
+                "AstID": "1734322243-119",
+                "GrlText": "In",
+                "VariableName": "",
+                "Constant": null,
+                "FunctionCall": null,
+                "Variable": {
+                  "AstID": "1734322243-120",
+                  "GrlText": "In",
+                  "Name": "In",
+                  "Variable": null,
+                  "ArrayMapSelector": null,
+                  "ValueNode": {},
+                  "Value": {}
+                },
+                "Negated": false,
+                "ExpressionAtom": null,
+                "ArrayMapSelector": null,
+                "Value": {},
+                "ValueNode": {},
+                "Evaluated": true
+              },
+              "ArrayMapSelector": null,
+              "Value": {},
+              "ValueNode": null,
+              "Evaluated": false
+            }
+          },
+          {
+            "AstID": "1734322243-156",
+            "GrlText": "Retract(\"log\")",
+            "Assignment": null,
+            "ExpressionAtom": {
+              "AstID": "1734322243-157",
+              "GrlText": "Retract(\"log\")",
+              "VariableName": "",
+              "Constant": null,
+              "FunctionCall": {
+                "AstID": "1734322243-158",
+                "GrlText": "",
+                "FunctionName": "Retract",
+                "ArgumentList": {
+                  "AstID": "1734322243-159",
+                  "GrlText": "\"log\"",
+                  "Arguments": [
+                    {
+                      "AstID": "1734322243-146",
+                      "GrlText": "\"log\"",
+                      "LeftExpression": null,
+                      "RightExpression": null,
+                      "SingleExpression": null,
+                      "ExpressionAtom": {
+                        "AstID": "1734322243-147",
+                        "GrlText": "\"log\"",
+                        "VariableName": "",
+                        "Constant": {
+                          "AstID": "1734322243-148",
+                          "GrlText": "\"log\"",
+                          "Snapshot": "",
+                          "DataContext": null,
+                          "WorkingMemory": null,
+                          "Value": {},
+                          "IsNil": false
+                        },
+                        "FunctionCall": null,
+                        "Variable": null,
+                        "Negated": false,
+                        "ExpressionAtom": null,
+                        "ArrayMapSelector": null,
+                        "Value": {},
+                        "ValueNode": null,
+                        "Evaluated": false
+                      },
+                      "Operator": 0,
+                      "Negated": false,
+                      "Value": {},
+                      "Evaluated": false
+                    }
+                  ]
+                },
+                "Value": {}
+              },
+              "Variable": null,
+              "Negated": false,
+              "ExpressionAtom": null,
+              "ArrayMapSelector": null,
+              "Value": {},
+              "ValueNode": null,
+              "Evaluated": false
+            }
+          }
+        ]
+      }
+    },
+    "Retracted": false,
+    "Deleted": false
+  }
+}

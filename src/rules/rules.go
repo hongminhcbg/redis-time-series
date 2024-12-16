@@ -130,8 +130,12 @@ func (r *_rule) Execute(ctx context.Context, in any, log logr.Logger) error {
 	}
 
 	eng1 := &engine.GruleEngine{
-		MaxCycle:  999_999_999,
-		Listeners: []engine.GruleEngineListener{},
+		MaxCycle: 999_999_999,
+		Listeners: []engine.GruleEngineListener{
+			&logListener{
+				l: log,
+			},
+		},
 	}
 	err = eng1.Execute(dataContext, kb)
 	if err != nil {
