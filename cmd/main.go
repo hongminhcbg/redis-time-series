@@ -27,7 +27,6 @@ var (
 )
 
 func initDb() *gorm.DB {
-	return nil
 	db, err := gorm.Open(mysql.Open(cfg.MySqlUrl))
 	if err != nil {
 		panic(err)

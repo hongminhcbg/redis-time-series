@@ -137,7 +137,7 @@ func (r *_rule) Execute(ctx context.Context, in any, log logr.Logger) error {
 			},
 		},
 	}
-	err = eng1.Execute(dataContext, kb)
+	err = eng1.ExecuteWithContext(ctx, dataContext, kb)
 	if err != nil {
 		log.Error(err, "ExecuteError")
 		return err
